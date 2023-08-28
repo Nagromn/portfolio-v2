@@ -16,6 +16,8 @@ class Router
        */
       public function start()
       {
+            session_start(); // On démarre la session
+
             $uri = $_SERVER['REQUEST_URI']; // On récupère l'URL
 
             if (!empty($uri) && $uri != '/' && $uri[-1] === '/') {

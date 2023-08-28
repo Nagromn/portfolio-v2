@@ -4,16 +4,13 @@ namespace App\Models;
 
 class User extends Model
 {
-      protected string $table = 'user';
-      protected int $id;
-      protected string $username;
       protected string $email;
-      protected string $password;
+      protected string $password = '';
       protected bool $isAdmin = false;
 
       public function __construct()
       {
-            $this->table = 'user';
+            $this->table = 'user'; // Définition du nom de la table
       }
 
       /**
@@ -24,6 +21,19 @@ class User extends Model
       public function findByEmail(string $email): mixed
       {
             return $this->runQuery("SELECT * FROM {$this->table} WHERE email = ?", [$email])->fetch();
+      }
+
+      /**
+       * Méthode permettant d'initiliaser la session de l'utilisateur
+       * @return void
+       */
+      public function sessionInit(): void
+      {
+            $_SESSION['user'] = [
+                  'id' => $this->id,
+                  'email' => $this->email,
+                  'isAdmin' => $this->isAdmin
+            ];
       }
 
       /**
@@ -41,25 +51,6 @@ class User extends Model
       public function setId($id): self
       {
             $this->id = $id;
-
-            return $this;
-      }
-
-      /**
-       * Get the value of username
-       */
-      public function getUsername(): string
-      {
-            return $this->username;
-      }
-
-      /**
-       * Set the value of username
-       * @return  self
-       */
-      public function setUsername($username): self
-      {
-            $this->username = $username;
 
             return $this;
       }

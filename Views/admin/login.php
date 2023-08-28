@@ -1,2 +1,3 @@
 <h1>Connexion</h1>
-<?= $form ?>
+<?= $loginForm ?>
+<a href="../admin/register">S'inscire</a>

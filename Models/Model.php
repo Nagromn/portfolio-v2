@@ -52,7 +52,8 @@ class Model extends Database
        */
       public function find(int $id): array
       {
-            return $this->runQuery("SELECT * FROM {$this->table} WHERE id = $id")->fetch(); // On retourne le résultat de la requête
+            $query = $this->runQuery("SELECT * FROM {$this->table} WHERE id = $id"); // On stocke la requête SQL dans une variable
+            return $query->fetch(); // On retourne le résultat de la requête
       }
 
       /**
