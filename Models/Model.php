@@ -48,9 +48,9 @@ class Model extends Database
       /**
        * Méthode permettant de récupérer un enregistrement d'une table en fonction de son ID
        * @param int $id ID de l'enregistrement
-       * @return array
+       * @return mixed
        */
-      public function find(int $id): array
+      public function find(int $id): mixed
       {
             $query = $this->runQuery("SELECT * FROM {$this->table} WHERE id = $id"); // On stocke la requête SQL dans une variable
             return $query->fetch(); // On retourne le résultat de la requête

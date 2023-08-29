@@ -4,7 +4,6 @@ namespace App\Controllers;
 
 use App\Core\Form;
 use App\Models\User;
-use App\Core\Session;
 
 /**
  * Controller administrateur
@@ -15,6 +14,7 @@ class AdminController extends Controller
 {
       /**
        * Affiche la page d'administration
+       * @return void
        */
       public function index(): void
       {
@@ -41,9 +41,6 @@ class AdminController extends Controller
 
                   header('Location: ../../public/main/index'); // On redirige vers la page de connexion de l'administrateur
                   exit;
-            } else {
-                  header('Location: ../../public/admin/register');
-                  exit;
             }
 
             $form = new Form; // On instancie un nouvel objet Form
@@ -54,7 +51,7 @@ class AdminController extends Controller
                   ->addInput('email', 'email', ['id' => 'email', 'class' => 'form-control', 'required' => true])
                   ->addLabel('password', 'Mot de passe : ')
                   ->addInput('password', 'password', ['id' => 'password', 'class' => 'form-control', 'autofocus' => true])
-                  ->addSubmit('S\'inscrire', ['class' => 'btn btn-primary'])
+                  ->addSubmit('S\'inscrire', ['class' => 'btn btn-primary mt-3'])
                   ->formEnd();
 
             $this->render('admin/register', ['registerForm' => $form->create()]); // On affiche la page d'inscription des utilisateurs par l'administrateur
@@ -62,6 +59,7 @@ class AdminController extends Controller
 
       /**
        * Affiche la page de login de l'administrateur
+       * @return void
        */
       public function login(): void
       {
@@ -97,7 +95,7 @@ class AdminController extends Controller
                   ->addInput('email', 'email', ['id' => 'email', 'class' => 'form-control', 'required' => true])
                   ->addLabel('password', 'Mot de passe : ')
                   ->addInput('password', 'password', ['id' => 'password', 'class' => 'form-control', 'autofocus' => true])
-                  ->addSubmit('Se connecter', ['class' => 'btn btn-primary'])
+                  ->addSubmit('Se connecter', ['class' => 'btn btn-primary mt-3'])
                   ->formEnd();
 
             $this->render('admin/login', ['loginForm' => $form->create()]); // On affiche la page de connexion de l'administrateur

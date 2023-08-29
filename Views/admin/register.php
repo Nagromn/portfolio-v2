@@ -1,3 +1,5 @@
-<h1>Inscription</h1>
-<?= $registerForm ?>
-<a href="../admin/login">Déjà inscrit - Se connecter</a>
+<div class="container">
+      <h1>Inscription</h1>
+      <?= $registerForm ?>
+      <p>Déjà inscrit ? <a href="../admin/login">Se connecter</a></p>
+</div>

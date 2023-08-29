@@ -7,19 +7,19 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                   <ul class="navbar-nav">
                         <li class="nav-item">
-                              <a class="nav-link active" aria-current="page" href="">Accueil</a>
+                              <a class="nav-link active" aria-current="page" href="../../public/main/index">Accueil</a>
                         </li>
                         <li class="nav-item">
-                              <a class="nav-link" href="">Compétences et formations</a>
+                              <a class="nav-link" href="../../public/main/skills">Compétences et formations</a>
                         </li>
                         <li class="nav-item">
-                              <a class="nav-link" href="">Expériences</a>
+                              <a class="nav-link" href="../../public/main/experiences">Expériences</a>
                         </li>
                         <li class="nav-item">
-                              <a class="nav-link" href="">Projets</a>
+                              <a class="nav-link" href="../../public/main/projects">Projets</a>
                         </li>
                         <li class="nav-item">
-                              <a class="nav-link" href="">Contact</a>
+                              <a class="nav-link" href="../../public/main/contact">Contact</a>
                         </li>
                         <?php if (isset($_SESSION['user']) && !empty($_SESSION['user']['id'])) : ?>
                               <li class="nav-item">

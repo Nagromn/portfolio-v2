@@ -10,10 +10,10 @@ use DateTime;
  */
 class Project extends Model
 {
-      protected int $id;
       protected string $projectName;
       protected string $content;
-      protected DateTime $created_at;
+      protected string $createdAt;
+      protected int $user_id;
 
       public function __construct()
       {
@@ -32,7 +32,7 @@ class Project extends Model
        * Set the value of id
        * @return  self
        */
-      public function setId($id): self
+      public function setId(int $id): self
       {
             $this->id = $id;
             return $this; // Retourne l'objet $this pour permettre les appels en chaîne
@@ -50,7 +50,7 @@ class Project extends Model
        * Set the value of projectName
        * @return  self
        */
-      public function setProjectName($projectName): self
+      public function setProjectName(string $projectName): self
       {
             $this->projectName = $projectName;
             return $this; // Retourne l'objet $this pour permettre les appels en chaîne
@@ -68,27 +68,47 @@ class Project extends Model
        * Set the value of content
        * @return  self
        */
-      public function setContent($content): self
+      public function setContent(string $content): self
       {
             $this->content = $content;
             return $this; // Retourne l'objet $this pour permettre les appels en chaîne
       }
 
       /**
-       * Get the value of created_at
+       * Get the value of createdAt
        */
-      public function getCreatedAt(): DateTime
+      public function getCreatedAt(): string
       {
-            return $this->created_at;
+            return $this->createdAt;
       }
 
       /**
-       * Set the value of created_at
+       * Set the value of createdAt
        * @return  self
        */
-      public function setCreatedAt($created_at): self
+      public function setCreatedAt(string $createdAt): self
       {
-            $this->created_at = $created_at;
+            $this->createdAt = $createdAt;
             return $this; // Retourne l'objet $this pour permettre les appels en chaîne
+      }
+
+      /**
+       * Get the value of user_id
+       */
+      public function getUserId(): int
+      {
+            return $this->user_id;
+      }
+
+      /**
+       * Set the value of user_id
+       *
+       * @return  self
+       */
+      public function setUserId(int $user_id): self
+      {
+            $this->user_id = $user_id;
+
+            return $this;
       }
 }
