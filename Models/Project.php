@@ -13,6 +13,7 @@ class Project extends Model
       protected string $projectName;
       protected string $content;
       protected string $createdAt;
+      protected string $updatedAt;
       protected int $user_id;
 
       public function __construct()
@@ -90,6 +91,26 @@ class Project extends Model
       {
             $this->createdAt = $createdAt;
             return $this; // Retourne l'objet $this pour permettre les appels en chaîne
+      }
+
+      /**
+       * Get the value of updatedAt
+       */
+      public function getUpdatedAt(): string
+      {
+            return $this->updatedAt;
+      }
+
+      /**
+       * Set the value of updatedAt
+       *
+       * @return  self
+       */
+      public function setUpdatedAt(string $updatedAt): self
+      {
+            $this->updatedAt = $updatedAt;
+
+            return $this;
       }
 
       /**

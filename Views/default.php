@@ -14,6 +14,22 @@
       </header>
 
       <main>
+            <!-- Afficher les messages d'erreurs de la session -->
+            <?php if (!empty($_SESSION['error'])) : ?>
+                  <div class="alert alert-danger" role="alert">
+                        <?= $_SESSION['error'];
+                        unset($_SESSION['error']); ?>
+                  </div>
+            <?php endif; ?>
+            <!-- Afficher les messages de succès de la session -->
+            <?php if (!empty($_SESSION['success'])) : ?>
+                  <div class="alert alert-success" role="alert">
+                        <?= $_SESSION['success'];
+                        unset($_SESSION['success']); ?>
+                  </div>
+            <?php endif; ?>
+
+            <!-- Contenu de la page -->
             <?= $content; ?>
       </main>
 

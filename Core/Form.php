@@ -51,7 +51,7 @@ class Form
                   if (in_array($attribute, $arr) && $value == true) {
                         $str .= " $attribute"; // Ajoute l'attribut sans valeur à la chaîne de caractères
                   } else {
-                        $str .= " $attribute='$value'"; // Ajoute l'attribut et sa valeur à la chaîne de caractères
+                        $str .= " $attribute=\"$value\""; // Ajoute l'attribut et sa valeur à la chaîne de caractères
                   }
             }
 
@@ -149,7 +149,7 @@ class Form
        * @return Form
        */
       public function addSelect(string $name, array $options, array $attributes = []): self
-      {     
+      {
             $this->formCode .= "<select name='$name'"; // Ajoute l'attribut name au select (ex: <select name="category">)
 
             // Ajoute les attributs au select
@@ -157,7 +157,7 @@ class Form
 
             // Parcours les options du select
             foreach ($options as $value => $text) {
-                  $this->formCode .= "<option value='$value'>$text</option>"; // Ajoute l'option et la balise de fermeture de l'option
+                  $this->formCode .= "<option value=\"$value\">$text</option>"; // Ajoute l'option et la balise de fermeture de l'option
             }
 
             $this->formCode .= '</select>'; // Ajoute la balise de fermeture du select
